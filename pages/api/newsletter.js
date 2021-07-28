@@ -14,14 +14,14 @@ const postToZapier = async (name, email) => {
   if (res.status !== 200) {
     throw new Error(data.message);
   }
+  console.log(data);
   return data;
 };
 
 export default function handler(req, res) {
   const { name, email } = req.body;
 
-  const zapierResponse = await postToZapier(name, email);
-  console.log(zapierResponse);
+  const zapierResponse = postToZapier(name, email);
 
   res.status(200).json({
     status: 200,
