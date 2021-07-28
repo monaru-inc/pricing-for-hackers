@@ -3,7 +3,7 @@ import TagManager from "react-gtm-module";
 import { useEffect } from "react";
 
 const tagManagerArgs = {
-  id: "G-4RWBNY6D03",
+  gtmId: "G-4RWBNY6D03",
 };
 
 function MyApp({ Component, pageProps }) {
