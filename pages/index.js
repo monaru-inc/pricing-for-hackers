@@ -10,7 +10,10 @@ import { StandardMetadata } from "components/metadata";
 export default function Home({ source, frontMatter }) {
   return (
     <div>
-      <StandardMetadata title="Pricing for Hackers" description="" />
+      <StandardMetadata
+        title="Pricing for Hackers"
+        description="My goal with this guide is to help people understand the pricing landscape and build an understanding of how to operate in it faster. Think of it as a jump start on your pricing journey."
+      />
       <div className="pt-16 pb-20 px-4 text-base max-w-prose mx-auto">
         <div className="mb-8 text-center">
           <h1 className="my-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl sm:leading-10">

@@ -21,7 +21,7 @@ const postToZapier = async (name, email) => {
 export default function handler(req, res) {
   const { name, email } = req.body;
 
-  const zapierResponse = postToZapier(name, email);
+  postToZapier(name, email);
 
   res.status(200).json({
     status: 200,
