@@ -1,0 +1,90 @@
+# Pricing for Hackers
+
+## Why is Pricing Important
+
+Pricing has a massive impact on your success as a SaaS founder. Your pricing can make or break your company, but few people spend a lot of time on pricing or reevaluate if their current pricing is working for them.
+
+Your pricing determines which types of customers can afford your product, which has knock on effects on your marketing and sales strategies. Different types of customers have different price points, and different problems. Your pricing strategy is deeply intertwined with your product, sales and marketing strategies.
+
+Why do so few people spend time iterating on their pricing and optimizing their packaging? For one, it's hard to do, and hard to know which direction you should move towards. Spending time on pricing is hard, but it's worth while and worth spending time on.
+
+I'm a software engineer, founder and hacker. My goal with this guide is to help people understand the pricing landscape and build an understanding of how to operate in it faster.
+
+## Pricing & Packaging Overview
+
+So what do we mean by "pricing"? There are two large components, the price point, and what customers get for that price point. Pricing is about what you charge, how often it's billed, if it's metered, do you offer trials etc. Packaging is about what you get for that price, what features are included, and what features are limited (e.g. seats, storage, api requests etc).
+
+## Approaches to Pricing (Value based vs Cost Plus vs Competitors)
+
+There are a number of ways people go about deciding on their pricing, the most common is to look at direct competitors and charge something similar. If your competitors are successful this can work okay, but chances are you're leaving a lot on the table. You believe your solution to be better than your competitors (otherwise you wouldn't be competing against them), on which dimensions are you better? Can your pricing reinforce those differences?
+
+Cost Plus is taking the cost to provide your service plus some margin, this generally leaves a lot of uncaptured value especially for software companies which generally have very low costs of goods sold (COGS).
+
+You want to be in a position where your pricing aligns with the value your customer is receiving. This is called Value Based Pricing. It's difficult to know the exact value you're providing in numeric terms, this generally results in iterating on your prices until you reach a bit of friction when closing deals. This seems somewhat counter intuitive, but friction means you're close to capturing the value you're providing. If potential customers aren't slightly concerned with your pricing you're leaving money on the table. That said, if you don't have a salesforce to handle closing these deals, you may be comfortable with leaving money on the table to increase conversions. You can always offer slight discounts to get people over the hill. Offering a discount when customers are on the fence builds loyalty, as they think they're getting a deal, and
+
+## Segmenting and Positioning
+
+You've probably already thought about your positioning, who you're selling to, what your value proposition is and how it compares to your competitors. Once you've figured out your positioning, your pricing needs to reinforce that choice. If you're targeting small companies, you're going to have a hard time if you decide to charge enterprise software prices. Your positioning determines if you're a $10 product, $300 or $10,000 product. Getting this right is so much more important than smaller tweaks around your overall price point.
+
+As you grow you'll also have a number of company segments in your target market. Some may be large, some small and others in between. You want your pricing to capture as much value as possible for each segment. Say you pick a single price point, some users will find that price hard to swallow, and some will find it a bargain. In these cases you're causing unnecessary churn and conversion issues for your smaller companies, and leaving money on the table for the larger ones.
+
+You should aim to have a pricing scheme that scales with the value you're providing. Traditionally companies have done this by charging by seat. This has some advantages, as larger companies will have higher price points and will be generally more willing to pay. However for products that aren't collaboration focused it leaves a lot to be desired, image a marketing org paying $50 a seat for a tool that drives upwards of millions of dollars of revenue. It doesn't come close to the value when they only have ~10 seats. You could have a service managed and used by one person that provides an immense amount of value, or customers who share logins. Charging by the seat wouldn't make sense in these cases.
+
+What you want to find is a value metric that scales with the value you provide to your customers, up next we'll dial in what we mean by a good value metric.
+
+## What makes a good value metric anyways?
+
+Good value metrics charge a % of the value you provide to your customers. For example, Daily.co charges based on the number of minutes people spend using the service.
+
+In order to create a good value metric you need to know what's valuable, and find the dimensions by which that value increases or decreases. As I mentioned in the segmenting section, different customers value different things. Some customers care about Single Sign On (SSO), or SAML. Others want specific collaboration features when they reach a certain scale.
+
+SSO is one of those classic pricing levers, large organizations that want SSO will also have a higher willingness to pay generally. You can use SSO on a specific tier or plan to push people towards the tier that makes sense for them.
+
+## Examples of Great Pricing
+
+### Mux
+
+Mux is a video stream and encoding platform, it handles all the complexity of working with video on the modern web. It's API first and has spent a lot of time making it simple to integrate video into your site. It's pricing reinforces this, everything is charged by the minute so your pricing scales up with your usage. The more you use Mux the more you'll pay, their value metric is the number of video minutes they store, encode or stream on your behalf.
+
+Their pay as you go pricing makes it a super easy decision to integrate Mux, at scale you might want to use other providers but when you're first integrating Mux it saves you a good bit of time and the price makes it easy to pick. This approach isn't without downsides, by focusing on usage based pricing customers can have unpredictable bills and can be very wary of integrating these services into high volume applications.
+
+### Slack
+
+You've probably heard of Slack, their pricing is fairly straightforward with three tiers + free. Free locks in smaller companies and makes Slack an easy default choice for small organizations less than 10 people or so. Once you want to integrate more apps, or save your chat history you'll move to their pro plan at ~$7 a seat. Larger organizations want to manage access via SSO, which requires a jump to the ~$13 plan.
+
+Per seat pricing makes sense for collaboration tools, the value slack provides increases when your whole team is on Slack. They've also identified the key upgrades that push people to the next tier, Unlimited Apps from free to pro, and SSO for Pro to Business+. Other features included in those plans deepen your Slack usage as you continue to see the value.
+
+## Implementation Details
+
+Implementing Pricing and Packaging in a robust way can be difficult. While your pricing is relatively self contained in your app the problem domain is complex. [Stripe Customer Portal](https://stripe.com/docs/billing/subscriptions/customer-portal) has helped a bit recently here, but there are optimizations and customizations that make sense to do to you pricing pages at scale.
+
+You might want to localize prices to a market where you customers can't afford US / Europe prices, or A/B test different pricing plans. There's also a fair bit of ongoing maintenance around migrating customers from older plans to new ones (if you choose to do so), handling trial periods inside your apps logic, sending invoices and otherwise communicating with customers.
+
+When you're just starting out I'd recommend integrating Stripe's Customer Portal, and avoiding the upfront engineering effort to fully build out pricing.
+
+Iterating on packaging is harder, packaging is what features customers get on a specific plan. It's all about understanding what workflows your customers are paying for, and targeting your packaging towards a specific segment.
+
+Implementing these feature access patterns can get complicated. If you don't migrate customers to new plans each package needs to be fully versioned which makes them brittle to iterate on. You also might want to support mixing different packages, or adding add-ons.
+
+There aren't many turnkey solutions in this space, most folks link their subscription identifiers and plans in order to perform feature level checks. This gets hard to manage with versioning and pricing folks need to loop in engineers to make changes.
+
+---
+
+I hope this guide has been helpful, if you have any questions or comments please let me know. You can reach us at feedback@pricingforhackers.com.
+
+We plan to keep this guide up to date, and add more content as we go. If you want to stay in the loop drop us your email and we'll send you updates.
+
+```
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"email":"your@email.com", "name":"your name"}' \
+  https://pricingforhackers.com/feedback
+```
+
+## Resources
+
+We've found these resources to be helpful in understanding pricing and packaging, and they're good jumping off points.
+
+- [Doubling SaaS Revenue By Changing The Pricing Model](https://www.kalzumeus.com/2012/08/13/doubling-saas-revenue/)
+- [How to price your SaaS product](https://www.lennysnewsletter.com/p/saas-pricing-strategy)
+- [Pricing Strategy is Product Strategy](https://every.to/napkin-math/pricing-strategy-is-product-strategy)
+- [A SaaS pricing guide: SaaS pricing models, strategies, & examples](https://www.profitwell.com/recur/all/saas-pricing)
