@@ -54,7 +54,7 @@ Per seat pricing makes sense for collaboration tools, the value slack provides i
 
 ## Implementation Details
 
-Implementing Pricing and Packaging in a robust way can be difficult. While your pricing is relatively self contained in your app the problem domain is complex. [Stripe Customer Portal](https://stripe.com/docs/billing/subscriptions/customer-portal) has helped a bit recently here, but there are optimizations and customizations that make sense to do to you pricing pages at scale.
+Implementing Pricing and Packaging in a robust way can be difficult. While your pricing is relatively self contained in your app the problem domain is complex. [Stripe Customer Portal](https://stripe.com/docs/billing/subscriptions/customer-portal) has helped a bit recently here by handling the UI implementation, but there are optimizations and customizations that make sense to do to you pricing pages at scale.
 
 You might want to localize prices to a market where you customers can't afford US / Europe prices, or A/B test different pricing plans. There's also a fair bit of ongoing maintenance around migrating customers from older plans to new ones (if you choose to do so), handling trial periods inside your apps logic, sending invoices and otherwise communicating with customers.
 
@@ -64,7 +64,9 @@ Iterating on packaging is harder, packaging is what features customers get on a 
 
 Implementing these feature access patterns can get complicated. If you don't migrate customers to new plans each package needs to be fully versioned which makes them brittle to iterate on. You also might want to support mixing different packages, or adding add-ons.
 
-There aren't many turnkey solutions in this space, most folks link their subscription identifiers and plans in order to perform feature level checks. This gets hard to manage with versioning and pricing folks need to loop in engineers to make changes.
+There aren't many turnkey solutions in this space, most folks link their subscription identifiers and plans in order to perform feature level checks. This gets hard to manage with versioning and pricing folks need to loop in engineers to make changes. Ideally you'd be able to outsource this undifferentiated heavy lifting to a third party.
+
+If that's an interesting proposition, check out [Monoco ↗](https://monoco.us/) and let me know what you think.
 
 ---
 
