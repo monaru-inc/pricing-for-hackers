@@ -7,7 +7,7 @@ const StandardMetadata = ({ title, description }) => (
     <link
       rel="canonical"
       key="canonical"
-      href="https://pricingforhackers.com"
+      href="https://www.pricingforhackers.com"
     />
     <title key="title">{title}</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -22,18 +22,18 @@ const StandardMetadata = ({ title, description }) => (
     />
     <meta
       name="twitter:image"
-      content="https://pricingforhackers.com/assets/logo.png"
+      content="https://www.pricingforhackers.com/assets/logo.png"
     />
     <meta
       property="og:image"
-      content="https://pricingforhackers.com/assets/logo.png"
+      content="https://www.pricingforhackers.com/assets/logo.png"
     />
     <meta property="og:image:height" content="650" />
     <meta property="og:image:width" content="650" />
     <meta name="twitter:card" content="summary" />
     <meta property="og:title" content={title} key="og-title" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pricingforhackers.com" />
+    <meta property="og:url" content="https://www.pricingforhackers.com" />
     <meta
       property="og:description"
       content={description}
@@ -65,7 +65,7 @@ const CommonMetadata = ({ title, description }) => {
       <link
         key="canonical"
         rel="canonical"
-        href={`https://pricingforhackers.com${router.pathname}`}
+        href={`https://www.pricingforhackers.com${router.pathname}`}
       />
 
       {title && <title>{title} - Pricing for Hackers</title>}
