@@ -2,10 +2,9 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import fs from "fs";
 import path from "path";
-import Link from "next/link";
 import matter from "gray-matter";
-import Head from "next/head";
 import { StandardMetadata } from "components/metadata";
+import EmailCapture from "components/email-capture";
 
 export default function Home({ source, frontMatter }) {
   return (
@@ -21,7 +20,7 @@ export default function Home({ source, frontMatter }) {
           </h1>
         </div>
         <div className="prose dark:prose-dark">
-          <MDXRemote {...source} components={{}} />
+          <MDXRemote {...source} components={{ EmailCapture: EmailCapture }} />
         </div>
       </div>
     </div>
