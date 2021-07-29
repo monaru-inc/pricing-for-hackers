@@ -5,6 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 import { StandardMetadata } from "components/metadata";
 import EmailCapture from "components/email-capture";
+import Divider from "components/divider";
 
 export default function Home({ source, frontMatter }) {
   return (
@@ -20,7 +21,10 @@ export default function Home({ source, frontMatter }) {
           </h1>
         </div>
         <div className="prose dark:prose-dark">
-          <MDXRemote {...source} components={{ EmailCapture: EmailCapture }} />
+          <MDXRemote
+            {...source}
+            components={{ EmailCapture: EmailCapture, Divider: Divider }}
+          />
         </div>
       </div>
     </div>

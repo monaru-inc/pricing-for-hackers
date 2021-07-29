@@ -20,7 +20,7 @@ const postToBackend = async (email) => {
 export default function Example() {
   const [email, setEmail] = useState("");
   return (
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full py-4">
       <form
         className="sm:flex w-full"
         onSubmit={(e) => {
