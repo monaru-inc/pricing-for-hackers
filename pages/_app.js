@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     Fathom.load("CXGKTUDN", {
-      includedDomains: ["pricingforhackers.com"],
+      includedDomains: ["www.pricingforhackers.com"],
       url: ["https://sloth.pricingforhackers.com/script.js"],
     });
 
