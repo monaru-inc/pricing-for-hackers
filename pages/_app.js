@@ -1,25 +1,25 @@
 import "../styles/globals.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-
-const pageview = (url) =>
-  window.gtag("config", "G-4RWBNY6D03", {
-    page_path: url,
-  });
+import * as Fathom from "fathom-client";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
+    Fathom.load("CXGKTUDN", {
+      includedDomains: ["pricingforhackers.com"],
+      // url: ["https://kite.pricingforhackers.com/script.js"],
+    });
 
+    function onRouteChangeComplete(url) {
+      Fathom.trackPageview({ url });
+    }
+    router.events.on("routeChangeComplete", onRouteChangeComplete);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
+      router.events.off("routeChangeComplete", onRouteChangeComplete);
     };
-  }, [router.events]);
+  }, []);
   return <Component {...pageProps} />;
 }
 
