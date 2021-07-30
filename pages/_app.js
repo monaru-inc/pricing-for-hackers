@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Fathom.load("CXGKTUDN", {
       includedDomains: ["pricingforhackers.com"],
-      // url: ["https://kite.pricingforhackers.com/script.js"],
+      url: ["https://sloth.pricingforhackers.com/script.js"],
     });
 
     function onRouteChangeComplete(url) {
